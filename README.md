@@ -1,8 +1,8 @@
 # laz-y
-Automating payload generations for OSEP labs and the exam.
+Automating payload generation for OSEP labs and the exam.
 
 ## But, why?
-The VPN connection dropped during on of the OSEP challenge labs, and my local IP changed. I needed to recompile all payloads.. I did not, I wrote a script :) 
+The VPN connection dropped during one of the OSEP challenge labs, and my local IP changed. I needed to recompile all the payloads and tools.. I did not, I wrote a script :) 
 
 ## Credits
 * Stackoverflow 

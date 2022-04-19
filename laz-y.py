@@ -30,8 +30,8 @@ def template_filling(mark, buf_32, buf_64: str):
     print("[+] Starting to fill up templates..")
 
     try:
-        for filename in os.listdir("cs-templates"):
-            with open(os.path.join("cs-templates", filename), 'r') as f:
+        for filename in os.listdir("templates"):
+            with open(os.path.join("templates", filename), 'r') as f:
                 text = f.read()
                 result = text.replace(mark, buf_32, 1)
                 #print(result)
@@ -44,8 +44,8 @@ def template_filling(mark, buf_32, buf_64: str):
 
 
     try:
-            for filename in os.listdir("cs-templates"):
-                with open(os.path.join("cs-templates", filename), 'r') as f:
+            for filename in os.listdir("templates"):
+                with open(os.path.join("templates", filename), 'r') as f:
                     text = f.read()
                     result = text.replace(mark, buf_64, 1)
                     #print(result)

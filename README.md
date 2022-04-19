@@ -1,5 +1,5 @@
 # laz-y
-Automating payload generation for OSEP labs and the exam.
+Automating payload generation for OSEP labs and the exam. This tool generates x86 and x64 meterpreter shellcodes, injects them in CS templates, and generate binaries using mcs.
 
 ## But, why?
 The VPN connection dropped during one of the OSEP challenge labs, and my local IP changed. I needed to recompile all the payloads and tools.. I did not, I wrote a script :) 

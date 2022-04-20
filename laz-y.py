@@ -161,7 +161,7 @@ if __name__=="__main__":
         template_filling(shell_mark, dec_mark, dec_routine, content_32, 32)
         template_filling(shell_mark, dec_mark, dec_routine, content_64, 64)
     else:
-        print("Did you set an encoding method?")
+        print("[-] Did you set a supported encoding method?")
         quit()
 
     #Compiling all CS files for you bro

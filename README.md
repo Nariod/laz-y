@@ -23,7 +23,7 @@ This script has only been tested on Kali.
 * Add your CS templates in the "templates" folder
 * Add the mark `!!!_SHELLCODE_MARK!!!` in the templates, where you want the shellcode to be injected
 * Add the mark `!!!DECODE_ROUTINE!!!` in the templates, where you want the decoding routine to be injected
-* Run the script with `python3 laz-y.py -l CALLBACK_IP -p CALLBACK_PORT`
+* Run the script with `python3 laz-y.py -l CALLBACK_IP -p CALLBACK_PORT -e ENCODING_OPTION`
 
 ## To do
 - [x] Basic mark for shellcode swaping

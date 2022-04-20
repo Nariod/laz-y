@@ -1,15 +1,22 @@
 # laz-y
-Automating payload generation for OSEP labs and the exam. This tool generates x86 and x64 meterpreter shellcodes, injects them in CS templates, and generate binaries using mcs.
+Automating payload generation for OSEP labs and the exam. This tool generates x86 and x64 meterpreter shellcodes, injects them in your CS templates, and generate binaries using mcs. Will soon support ROT and XOR encoding.
 
 ## But, why?
 The VPN connection dropped during one of the OSEP challenge labs, and my local IP changed. I needed to recompile all the payloads and tools.. I did not, I wrote a script :) 
 
+## How does it work?
+When started, the python script will search for marks in all files you put in the "templates" folder and swap the marks for the MSF payload. It then export the modified template files in the "output" folder, and run "mcs" C# compiler on all *.cs files.
+You end up with :
+* Your initial templates, untouched
+* The templates with marks replaced by MSF payloads
+* IF the templates are .cs, the resulting C# binaries
+
 ## Installation
 This script has only been tested on Kali.
-* sudo apt update && sudo apt install mono-mcs -y
-* git clone https://github.com/Nariod/laz-y.git
-* cd laz-y
-* pip3 install -r requirements.txt
+* `sudo apt update && sudo apt install mono-mcs -y`
+* `git clone https://github.com/Nariod/laz-y.git`
+* `cd laz-y`
+* `pip3 install -r requirements.txt`
 
 ## Usage
 * Add CS templates in the "templates" folder

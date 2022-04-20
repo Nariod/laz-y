@@ -1,5 +1,7 @@
 This file is a template example, the payload will be injected where the mark is! Laz-y script will output the result file with the modification.
 
-!!! FIND ME PYTHON, PLZ !!!
+!!!_SHELLCODE_MARK!!!
 
 Yep, this is the mark..
+
+!!!DECODE_ROUTINE!!!

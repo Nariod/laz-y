@@ -31,6 +31,7 @@ This script has only been tested on Kali.
 - [x] Basic mark for shellcode swaping
 - [x] Add ROT encoding support
 - [ ] Add XOR encoding support
+- [ ] Check user input for safety
 
 ## Credits
 * Stackoverflow 

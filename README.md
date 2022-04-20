@@ -1,15 +1,16 @@
 # laz-y
-Automating payload generation for OSEP labs and the exam. This tool generates x86 and x64 meterpreter shellcodes, injects them in your CS templates, and generate binaries using mcs. Will soon support ROT and XOR encoding.
+Automating payload generation for OSEP labs and exam. This tool generates x86 and x64 meterpreter shellcodes, injects them in your CS templates, and generate binaries using mcs. Will soon support ROT and XOR encoding.
 
 ## But, why?
 The VPN connection dropped during one of the OSEP challenge labs, and my local IP changed. I needed to recompile all the payloads and tools.. I did not, I wrote a script :) 
 
 ## How does it work?
+THIS REPO DOES NOT PROVIDE TEMPLATES.
 When started, the python script will search for marks in all files you put in the "templates" folder and swap the marks for the MSF payload. It then export the modified template files in the "output" folder, and run "mcs" C# compiler on all *.cs files.
 You end up with :
 * Your initial templates, untouched
 * The templates with marks replaced by MSF payloads
-* IF the templates are .cs, the resulting C# binaries
+* If the templates are .cs, the resulting C# binaries
 
 ## Installation
 This script has only been tested on Kali.
@@ -19,9 +20,14 @@ This script has only been tested on Kali.
 * `pip3 install -r requirements.txt`
 
 ## Usage
-* Add CS templates in the "templates" folder
-* Add the mark "!!! FIND ME PYTHON, PLZ !!!" in the templates, where you want your shellcode to be injected
-* run the script with "python3 laz-y.py -l CALLBACK_IP -p CALLBACK_PORT"
+* Add your CS templates in the "templates" folder
+* Add the mark `!!! FIND ME PYTHON, PLZ !!!` in the templates, where you want the shellcode to be injected
+* Run the script with `python3 laz-y.py -l CALLBACK_IP -p CALLBACK_PORT`
+
+## To do
+- [x] Basic mark for shellcode swaping
+- [ ] Add ROT encoding support
+- [ ] Add XOR encoding support
 
 ## Credits
 * Stackoverflow 

@@ -46,7 +46,7 @@ def template_filling(shell_mark, dec_mark, dec_routine, buf: str, arch:int):
                 text = f.read()
                 shell_text = text.replace(shell_mark, crafted_payload, 1)
                 result_text = shell_text.replace(dec_mark, dec_routine, 1)
-                print(result_text)
+                #print(result_text)
                 with open(os.path.join("cs-output", key+filename), 'w') as r:
                     r.write(result_text)
 

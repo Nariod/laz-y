@@ -14,7 +14,7 @@ def exe_will_rain():
     print("[+] Starting to compile CS files..")
 
     try:
-        for filename in glob.glob("cs-output/*.cs"):
+        for filename in glob.glob("output/*.cs"):
             command = "mcs %s"%(filename)
             print("[+] Compiling: ",command)
             os.system(command)
@@ -47,7 +47,7 @@ def template_filling(shell_mark, dec_mark, dec_routine, buf: str, arch:int):
                 shell_text = text.replace(shell_mark, crafted_payload, 1)
                 result_text = shell_text.replace(dec_mark, dec_routine, 1)
                 #print(result_text)
-                with open(os.path.join("cs-output", key+filename), 'w') as r:
+                with open(os.path.join("output", key+filename), 'w') as r:
                     r.write(result_text)
 
     except Exception as e:

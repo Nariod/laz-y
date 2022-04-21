@@ -5,7 +5,7 @@ Automating payload generation for OSEP labs and exam. This tool generates x86 an
 The VPN connection dropped during one of the OSEP challenge labs, and my local IP changed. I needed to recompile all the payloads and tools.. I did not, I wrote a script :) 
 
 ## How does it work?
-THIS REPO DOES NOT PROVIDE TEMPLATES.  
+THIS REPO PROVIDES TEMPLATES AS AN EXAMPLE. The whole point of this tool is to use your templates.  
 When started, the python script will search for marks in all files you put in the "templates" folder and swap the marks for the MSF payload and decoding routines. It then exports the modified template files in the "output" folder, and run "mcs" C# compiler on all *.cs files.
 You end up with :
 * Your initial templates, untouched
@@ -25,7 +25,7 @@ This script has only been tested on Kali.
 * Add the mark `!!!DECODE_ROUTINE!!!` in the templates, where you want the decoding routine to be injected
 * Run the script with `python3 laz-y.py -l CALLBACK_IP -p CALLBACK_PORT -e ENCODING_OPTION`
 
-![Usage](Usage-screenshot.png)
+![Usage](images/Usage-screenshot.pngUsage-screenshot.png)
 
 ## To do
 - [x] Basic mark for shellcode swaping
@@ -36,6 +36,9 @@ This script has only been tested on Kali.
 ## Credits
 * Stackoverflow 
 * https://www.abatchy.com/2017/05/rot-n-shellcode-encoder-linux-x86
+
+Templates:
+* https://github.com/chvancooten/OSEP-Code-Snippets/blob/main/Shellcode%20Process%20Hollowing/Program.cs
 
 ## Legal disclaimer
 Usage of anything presented in this repo to attack targets without prior mutual consent is illegal. It's the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program. Only use for educational purposes.

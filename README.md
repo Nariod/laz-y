@@ -25,7 +25,7 @@ This script has only been tested on Kali.
 * Add the mark `!!!DECODE_ROUTINE!!!` in the templates, where you want the decoding routine to be injected
 * Run the script with `python3 laz-y.py -l CALLBACK_IP -p CALLBACK_PORT -e ENCODING_OPTION`
 
-![Usage](images/Usage-screenshot.pngUsage-screenshot.png)
+![Usage](/images/Usage-screenshot.pngUsage-screenshot.png)
 
 ## To do
 - [x] Basic mark for shellcode swaping

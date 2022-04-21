@@ -32,13 +32,14 @@ This script has only been tested on Kali.
 - [x] Add ROT encoding support
 - [ ] Add XOR encoding support
 - [ ] Check user input for safety
+- [ ] Code cleaning and deduplication
 
 ## Credits
 * Stackoverflow 
 * https://www.abatchy.com/2017/05/rot-n-shellcode-encoder-linux-x86
 
-Templates:
-* https://github.com/chvancooten/OSEP-Code-Snippets/blob/main/Shellcode%20Process%20Hollowing/Program.cs
+Templates
+* Process Hollowing : https://github.com/chvancooten/OSEP-Code-Snippets/blob/main/Shellcode%20Process%20Hollowing/Program.cs
 
 ## Legal disclaimer
 Usage of anything presented in this repo to attack targets without prior mutual consent is illegal. It's the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program. Only use for educational purposes.

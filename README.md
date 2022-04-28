@@ -33,7 +33,7 @@ For research purposes, I dedicated [a repo](https://github.com/Nariod/Laz-y-temp
 ## To do
 - [x] Basic mark for shellcode swaping
 - [x] Add ROT encoding support
-- [ ] Specify arch when mcs compiles
+- [x] Force arch when mcs compiles
 - [ ] Add XOR encoding support
 - [ ] Check user input for safety
 - [ ] Code cleaning and deduplication

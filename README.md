@@ -27,6 +27,9 @@ This script has only been tested on Kali.
 
 ![Usage](/images/Usage-screenshot.png)
 
+## Research and development
+For research purposes, I dedicated [a repo](https://github.com/Nariod/Laz-y-templates) for C# templates compatible with lazy. 
+
 ## To do
 - [x] Basic mark for shellcode swaping
 - [x] Add ROT encoding support

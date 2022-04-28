@@ -14,8 +14,14 @@ def exe_will_rain():
     print("[+] Starting to compile CS files..")
 
     try:
-        for filename in glob.glob("output/*.cs"):
-            command = "mcs %s"%(filename)
+        for filename in glob.glob("output/32*.cs"):
+            command = "mcs -platform:x86 %s"%(filename)
+            print("[+] Compiling: ",command)
+            os.system(command)
+            print()
+
+        for filename in glob.glob("output/64*.cs"):
+            command = "mcs -platform:x64 %s"%(filename)
             print("[+] Compiling: ",command)
             os.system(command)
             print()

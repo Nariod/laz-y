@@ -30,6 +30,7 @@ This script has only been tested on Kali.
 ## To do
 - [x] Basic mark for shellcode swaping
 - [x] Add ROT encoding support
+- [ ] Specify arch when mcs compiles
 - [ ] Add XOR encoding support
 - [ ] Check user input for safety
 - [ ] Code cleaning and deduplication

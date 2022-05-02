@@ -1,5 +1,5 @@
 # laz-y
-Automating payload generation for OSEP labs and exam. This tool generates x86 and x64 meterpreter shellcodes, injects them in your CS templates, and generate binaries using mcs. It supports ROT encoding, and soon XOR encoding.
+Automating payload generation for OSEP labs and exam. This tool generates x86 and x64 HTTPS staged meterpreter shellcodes, injects them in your CS templates, and generate binaries using mcs. It supports ROT encoding, and soon XOR encoding.
 
 ## But, why?
 The VPN connection dropped during one of the OSEP challenge labs, and my local IP changed. I needed to recompile all the payloads and tools.. I did not, I wrote a script :) 
@@ -20,10 +20,12 @@ This script has only been tested on Kali.
 * `pip3 install -r requirements.txt`
 
 ## Usage
+* DO NOT UPLOAD ANYTHING TO VIRUSTOTAL
 * Add your CS templates in the "templates" folder
 * Add the mark `!!!_SHELLCODE_MARK!!!` in the templates, where you want the shellcode to be injected
 * Add the mark `!!!DECODE_ROUTINE!!!` in the templates, where you want the decoding routine to be injected
 * Run the script with `python3 laz-y.py -l CALLBACK_IP -p CALLBACK_PORT -e ENCODING_OPTION`
+* Edit and import the .rc file in msfconsole
 
 ![Usage](/images/Usage-screenshot.png)
 
@@ -37,6 +39,8 @@ For research purposes, I dedicated [a repo](https://github.com/Nariod/Laz-y-temp
 - [ ] Add XOR encoding support
 - [ ] Check user input for safety
 - [ ] Code cleaning and deduplication
+- [ ] Add compatibility with other msfvenom payloads
+- [ ] Sign binaries with SigThief or CarbonCopy
 
 ## Credits
 * Stackoverflow 

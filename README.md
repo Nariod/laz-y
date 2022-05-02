@@ -39,6 +39,7 @@ For research purposes, I dedicated [a repo](https://github.com/Nariod/Laz-y-temp
 - [x] Force arch when mcs compiles
 - [x] Add msf resource files
 - [ ] Add XOR encoding support
+- [ ] Generate the msf resource files
 - [ ] Check user input for safety
 - [ ] Code cleaning and deduplication
 - [ ] Add compatibility with other msfvenom payloads

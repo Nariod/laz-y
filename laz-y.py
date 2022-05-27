@@ -6,8 +6,8 @@ import glob
 import random
 import string
 import json
+import itertools
 import base64
-
 
 def cheers():
     print()
@@ -101,7 +101,14 @@ def rot_encoding(content_32, content_64):
         print(str(e))
         quit()
 
+    #print(enc_content_32)
     return enc_content_32, enc_content_64, dec_routine
+
+def xor_crypt_string(data, key):
+    # thanks to https://www.tutorialspoint.com/cryptography_with_python/cryptography_with_python_xor_process.htm
+   xored = ''.join(chr(ord(x) ^ ord(y)) for (x,y) in zip(data, itertools.cycle(key)))
+
+   return xored 
 
 def xor_encoding(content_32, content_64):
     # thanks https://www.tutorialspoint.com/cryptography_with_python/cryptography_with_python_xor_process.htm
@@ -110,15 +117,15 @@ def xor_encoding(content_32, content_64):
         key = ''.join(random.choice(letters) for i in range(16))
         print("[+] Encoding shellcode with XOR key: %s"%(key))
 
-        enc_content_32 = "".join([chr(ord(c1)^ord(c2)) for (c1,c2) in zip(content_32,key)])
-        print("XOR'ed content32: ")
-        print(enc_content_32)
+        enc_content_32 = xor_crypt_string(content_32, key)
+        #print("XOR'ed content32: ")
+        #print(enc_content_32)
 
-        enc_content_64 = "".join([chr(ord(c1)^ord(c2)) for (c1,c2) in zip(content_64,key)])
-        print("XOR'ed content64: ")
-        print(enc_content_64)
+        enc_content_64 = xor_crypt_string(content_64, key)
+        #print("XOR'ed content64: ")
+        #print(enc_content_64)
 
-        plain_32 = "".join([chr(ord(c1)^ord(c2)) for (c1,c2) in zip(enc_content_32,key)])
+        plain_32 = xor_crypt_string(enc_content_32, key)
         print("UNXOR'ed content32: ")
         print(plain_32)
 
@@ -153,7 +160,6 @@ def msf_gen(l:str, p:int):
     except Exception as e:
         print(str(e))
         quit()
-
 
     return content_32, content_64
 

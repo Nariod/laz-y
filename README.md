@@ -10,7 +10,8 @@ When started, the python script will search for marks in all files you put in th
 You end up with :
 * Your initial templates, untouched
 * The templates with marks replaced with MSF payloads and decoding routines
-* If the templates are .cs, the resulting C# binaries (EXEs and soon DLLs)
+* If the templates are .cs, the resulting C# binaries
+* The according metasploit .rc files to start your listeners
 
 ## Installation
 This script has only been tested on Kali.
@@ -25,7 +26,7 @@ This script has only been tested on Kali.
 * Add the mark `!!!_SHELLCODE_MARK!!!` in the templates, where you want the shellcode to be injected
 * Add the mark `!!!DECODE_ROUTINE!!!` in the templates, where you want the decoding routine to be injected
 * Run the script with `python3 laz-y.py -l CALLBACK_IP -p CALLBACK_PORT -e ENCODING_OPTION`
-* Edit the appropriate .rc file with your IP/domain
+* Retrieve the metasploit ressource file (.rc) in the "output" folder
 * Start your listener with `sudo msfconsole -q -r https.rc`
 
 ![Usage](/images/Usage-screenshot.png)
@@ -39,7 +40,7 @@ For research purposes, I dedicated [a repo](https://github.com/Nariod/Laz-y-temp
 - [x] Force arch when mcs compiles
 - [x] Add msf resource files
 - [ ] Add XOR support
-- [ ] Generate the msf resource files
+- [X] Generate the msf resource files
 - [x] Check user input for safety
 - [ ] InstallUtil lolbas support
 

@@ -35,6 +35,23 @@ def exe_will_rain():
         print(str(e))
         quit()
 
+def rc_filling(ip_mark:str, port_mark:str, l:str, p:int):
+    print("[+] Starting to fill up msf resource files..")
+
+    try:
+        for filename in os.listdir("resource_file_templates"):
+            with open(os.path.join("resource_file_templates", filename), 'r') as f:
+                text = f.read()
+                first_text = text.replace(ip_mark, l, 1)
+                result_text = first_text.replace(port_mark, str(p), 1)
+                with open(os.path.join("output", filename), 'w') as r:
+                    r.write(result_text)
+
+    except Exception as e:
+        print(str(e))
+        quit()
+
+    print("[+] Done filling msf rc files")
        
 def template_filling(shell_mark, dec_mark, dec_routine, buf: str, arch:int):
     print("[+] The mark where shellcode will be inserted is: '%s'"%(shell_mark))
@@ -259,6 +276,8 @@ if __name__=="__main__":
 
     #Compiling all CS files for you bro
     exe_will_rain()
+
+    rc_filling(ip_mark, port_mark, l, p)
 
     #Only cheers up the amazing pentesters
     cheers()

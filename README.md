@@ -1,5 +1,5 @@
 # laz-y
-Automating payload generation for OSEP labs and exam. This tool generates x86 and x64 HTTPS staged meterpreter shellcodes, injects them in your CS templates, and generate binaries using mcs. It supports ROT encoding, and soon XOR encoding.
+Automating payload generation for OSEP labs and exam. This tool generates x86 and x64 HTTPS staged meterpreter shellcodes, injects them in your CS templates, and generate binaries using mcs. It supports ROT encoding, and soon AES encryption.
 
 ## But, why?
 The VPN connection dropped during one of the OSEP challenge labs, and my local IP changed. I needed to recompile all the payloads and tools.. I did not, I wrote a script :) 
@@ -38,7 +38,7 @@ For research purposes, I dedicated [a repo](https://github.com/Nariod/Laz-y-temp
 - [x] Add ROT encoding support
 - [x] Force arch when mcs compiles
 - [x] Add msf resource files
-- [ ] Add XOR encoding support
+- [ ] Add AES CTR encryption support
 - [ ] Generate the msf resource files
 - [ ] Check user input for safety
 - [ ] Code cleaning and deduplication

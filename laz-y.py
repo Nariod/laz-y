@@ -111,24 +111,43 @@ def xor_crypt_string(data, key):
    return xored 
 
 def xor_encoding(content_32, content_64):
-    # thanks https://www.tutorialspoint.com/cryptography_with_python/cryptography_with_python_xor_process.htm
+    enc_content_32 = ""
+    enc_content_64 = ""
     try:
         letters = string.ascii_lowercase
         key = ''.join(random.choice(letters) for i in range(16))
         print("[+] Encoding shellcode with XOR key: %s"%(key))
 
-        enc_content_32 = xor_crypt_string(content_32, key)
+        xor_32 = xor_crypt_string(content_32, key)
         #print("XOR'ed content32: ")
         #print(enc_content_32)
 
-        enc_content_64 = xor_crypt_string(content_64, key)
+        xor_64 = xor_crypt_string(content_64, key)
         #print("XOR'ed content64: ")
         #print(enc_content_64)
 
-        plain_32 = xor_crypt_string(enc_content_32, key)
+        plain_32 = xor_crypt_string(xor_32, key)
         print("UNXOR'ed content32: ")
         print(plain_32)
 
+    except Exception as e:
+        print(str(e))
+        quit()
+
+    try:
+        for i in bytearray.fromhex(xor_32):
+            j = i 
+            enc_content_32 += '0x'
+            enc_content_32 += '%02x,' %j
+
+        enc_content_32 = enc_content_32[:-1]
+        
+        for i in bytearray.fromhex(xor_64):
+            j = i
+            enc_content_64 += '0x'
+            enc_content_64 += '%02x,' %j
+
+        enc_content_64 = enc_content_64[:-1]
 
     except Exception as e:
         print(str(e))

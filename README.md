@@ -42,7 +42,6 @@ For research purposes, I dedicated [a repo](https://github.com/Nariod/Laz-y-temp
 - [ ] Generate the msf resource files
 - [x] Check user input for safety
 - [ ] InstallUtil lolbas support
-- [ ] Generate DLL as output
 
 ## Credits
 * Stackoverflow 

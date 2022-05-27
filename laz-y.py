@@ -239,6 +239,8 @@ if __name__=="__main__":
 
     shell_mark:str = "!!!_SHELLCODE_MARK!!!"
     dec_mark:str = "!!!DECODE_ROUTINE!!!"
+    ip_mark:str = "!!!IP_MARK!!!"
+    port_mark:str = "!!!PORT_MARK!!!"
     dec_routine:str = ""
 
     if str(e).upper() == "ROT":

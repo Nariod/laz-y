@@ -1,1 +1,4 @@
 *.exe
+*.hex
+output/*
+*.raw

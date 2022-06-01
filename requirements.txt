@@ -1,2 +1,2 @@
 argparse
-glob2d
+glob2

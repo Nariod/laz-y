@@ -15,7 +15,7 @@ You end up with :
 
 ## Installation
 This script has only been tested on Kali. Execute the following commands on an updated Kali OS to set up the environment:
-* `sudo apt update && sudo apt install mono-mcs -y`
+* `sudo apt update && sudo apt install mono-mcs mono-complete -y`
 * `git clone https://github.com/Nariod/laz-y.git`
 * `cd laz-y`
 * `pip3 install -r requirements.txt`

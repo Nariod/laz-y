@@ -20,13 +20,13 @@ def exe_will_rain():
 
     try:
         for filename in glob.glob("output/32*.cs"):
-            command = "mcs -platform:x86 -unsafe %s"%(filename)
+            command = "mcs -platform:x86 -unsafe -r:System.Configuration.Install %s"%(filename)
             print("[+] Compiling: ",command)
             os.system(command)
             print()
 
         for filename in glob.glob("output/64*.cs"):
-            command = "mcs -platform:x64 -unsafe %s"%(filename)
+            command = "mcs -platform:x64 -unsafe -r:System.Configuration.Install %s"%(filename)
             print("[+] Compiling: ",command)
             os.system(command)
             print()

